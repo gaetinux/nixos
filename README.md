@@ -1,0 +1,2 @@
+# nixos
+Ma config nixos
