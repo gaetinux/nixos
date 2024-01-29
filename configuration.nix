@@ -7,14 +7,15 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      #./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-63082226-ce55-420d-b377-2dd142182d33".device = "/dev/disk/by-uuid/63082226-ce55-420d-b377-2dd142182d33";
+  boot.initrd.luks.devices."luks-57d155fc-7ab3-42e5-84dd-cc521595232c".device = "/dev/disk/by-uuid/57d155fc-7ab3-42e5-84dd-cc521595232c";
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -90,7 +91,8 @@
     packages = with pkgs; [
       firefox
       neovim
-      zellij
+      tmux
+      htop
       git
       ansible
       vagrant
@@ -105,8 +107,6 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-  #  gnomeExtensions.appindicator
-  home-manager
   ];
 
   # Virtualization
