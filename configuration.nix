@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -135,8 +135,10 @@
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     shell = pkgs.fish;
     packages = with pkgs; [
-      # Dev
+      # DevOps
       neovim
+      kubectl
+      minikube
 
       # Web
       google-chrome
